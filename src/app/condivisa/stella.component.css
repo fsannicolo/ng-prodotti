@@ -1,0 +1,14 @@
+@import '~font-awesome/css/font-awesome.css';
+
+.crop {
+  /*controlla cosa succede al contenuto quando
+  il contenuto è troppo grande per l'area alla quale
+  appartiene. link: 
+  https://www.w3schools.com/csS/css_overflow.asp*/
+  overflow: hidden;
+}
+div {
+  /*cambia la forma del puntatore del mouse.
+  https://www.w3schools.com/cssref/pr_class_cursor.php*/
+  cursor: pointer;
+}
