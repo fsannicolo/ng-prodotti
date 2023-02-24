@@ -6,14 +6,15 @@ import { AppComponent } from './app.component';
 import { StellaComponent } from './condivisa/stella.component';
 import { ProdottiListComponent } from './prodotti/prodotti-list.component';
 import { ConvertToSpacePipe } from './condivisa/convert-to-space.pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule],
+  imports: [BrowserModule, FormsModule, NgbModule],
   declarations: [
     AppComponent,
     StellaComponent,
     ProdottiListComponent,
-    ConvertToSpacePipe
+    ConvertToSpacePipe,
   ],
   bootstrap: [AppComponent],
 })
