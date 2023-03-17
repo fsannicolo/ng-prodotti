@@ -20,8 +20,9 @@
         <thead>
           <tr>
             <th>
-
-              <button (click)="visualizzaImmagini()"class="btn btn-primary">{{mostraNascondi? 'Mostra':'Nascondi'}} immagine</button>
+              <button (click)="visualizzaImmagini()" class="btn btn-primary">
+                {{ mostraNascondi ? 'Mostra' : 'Nascondi' }} immagine
+              </button>
             </th>
             <th>Prodotto</th>
             <th>Codice</th>
@@ -34,11 +35,14 @@
           <tr *ngFor="let prodotto of prodottiFiltrati">
             <td></td>
             <td>{{ prodotto.productName }}</td>
-            <td>{{ prodotto.productCode | convertToSpace:'-'}}</td>
+            <!-- pipe personalizzata -->
+            <td>{{ prodotto.productCode | convertToSpace: '-' }}</td>
             <td>{{ prodotto.releaseDate }}</td>
-            <td>{{ prodotto.price }}</td>
-            <td>{{prodotto.starRating }}</td>
-            <!-- <stella></stella>-->
+            <td>{{ prodotto.price | currency: 'EUR' }}</td>
+            <!--<td>{{ prodotto.starRating }}</td>-->
+            <td>
+              <stella [rating]="prodotto.starRating"> </stella>
+            </td>
             <!-- <td>
               <stella
                 [rating]="prodotto.starRating"
@@ -46,7 +50,6 @@
               >
               </stella>
             </td>-->
-            
           </tr>
         </tbody>
       </table>

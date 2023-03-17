@@ -1,13 +1,11 @@
-import { Injectable } from "@angular/core";
-import { IProdotto } from "./prodotto";
+import { Injectable } from '@angular/core';
+import { IProdotto } from './prodotto';
 
 @Injectable({
-  providedIn:'root'
+  providedIn: 'root',
 })
-export class ProdottiServizio{
-  
-  getProdotti():IProdotto[]
-  {
+export class ProdottiServizio {
+  getProdotti(): IProdotto[] {
     return [
       {
         productId: 1,
@@ -58,7 +56,7 @@ export class ProdottiServizio{
         price: 35.95,
         starRating: 4.6,
         imageUrl: 'assets/images/xbox-controller.png',
-      }
-    ]
+      },
+    ];
   }
 }
