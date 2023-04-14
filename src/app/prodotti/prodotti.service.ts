@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { IProdotto } from './prodotto';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root', // servizio visibile da tutto il progetto
 })
 export class ProdottiServizio {
   getProdotti(): IProdotto[] {

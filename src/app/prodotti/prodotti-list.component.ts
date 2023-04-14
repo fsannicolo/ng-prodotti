@@ -10,13 +10,17 @@ import { IProdotto } from './prodotto';
 export class ProdottiListComponent implements OnInit {
   mostraNascondi: boolean = false;
 
+  // dependency injection con definizione del singleton
   constructor(private prodottiServizio: ProdottiServizio) {}
 
   titoloLista: string = 'LISTA DEI PRODOTTI';
-  //accesso a questa variabile avviene attraverso i metodi setter e getter. è la stringa che mi creerà il filtro.
-  private _listaFiltrata: string = '';
-
   valoreRating: string = '';
+
+  prodottiFiltrati: IProdotto[] = []; //aggiungiamo poi i dati presi dal file api/products/products.json
+  prodotti: IProdotto[] = [];
+
+  //accesso a questa variabile avviene attraverso i metodi setter e getter
+  private _listaFiltrata: string = '';
 
   get listaFiltrata(): string {
     return this._listaFiltrata;
@@ -28,17 +32,7 @@ export class ProdottiListComponent implements OnInit {
     this.prodottiFiltrati = this.datiFiltrati(valore);
   }
 
-  //array vuoto che conterrà i prodotti filtrati
-  prodottiFiltrati: IProdotto[] = [];
-  //in questo caso usiamo any per indicare un tipo generico.
-  //aggiungiamo poi i dati presi dal file api/products/products.json
-
-  prodotti: IProdotto[] = [];
-  //implemento onInit per dare un valore iniziale alla variabile che mi serve per filtrare la lista
-  //attenzione che qui this.listaFiltrata richiama la function get listaFiltrata. la proprietà invece si chiama _listaFiltrata.
-
   ngOnInit(): void {
-    //this.listaFiltrata = '';
     this.prodotti = this.prodottiServizio.getProdotti();
     this.prodottiFiltrati = this.prodotti;
   }
